@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var num = prompt("Dime el tope");
+
+        function pares(n){
+            for(x=1;x<=n;x++)  
+                if (x%2==0)
+                    console.log(x);
+        }
+
+        function impares(n){
+            for(x=1;x<=n;x++)  
+                if (x%2!=0)
+                    console.log(x);
+        }
+        if (isNaN(num))
+            console.log("Anormal, te he pedido un numero");
+        else
+        {
+            console.log("PARES:");
+            pares(num);
+            console.log("IMPARES:");
+            impares(num);
+        }
+
+    </script>
+</body>
+</html>

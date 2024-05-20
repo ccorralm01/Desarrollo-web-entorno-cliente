@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>        
+        var div = document.createElement("div");
+        div.setAttribute("id","myDiv");
+        var caja = document.createElement("input");
+        caja.setAttribute("id","filas");
+        caja.setAttribute("placeholder","filas");
+        div.appendChild(caja);
+        var caja1 = document.createElement("input");
+        caja1.setAttribute("id","columnas");
+        caja1.setAttribute("placeholder","columnas");
+        var boton = document.createElement("button");
+        boton.setAttribute("onclick","dale()");
+        boton.setAttribute("id","boton");
+        boton.innerText ="ejecuta";
+        div.appendChild(caja);
+        div.appendChild(caja1);
+        div.appendChild(boton);
+        document.body.appendChild(div);
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border-color:   gray;
+            background-color: lightgray;
+        }
+        td{
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="number" id="filastabla1" placeholder="filas tabla 1" >
+        <input type="number" id="columnastabla1" placeholder="columnas tabla 1">
+    </div>
+    <div>
+        <input type="number" id="filastabla2" placeholder="filas tabla 2" >
+        <input type="number" id="columnastabla2" placeholder="columnas tabla 2">
+    </div>
+    <input type="button" id="boton" onclick="dale()" value="crea">
+    <script>
+        var filas, columnas;
+        function generarTabla(filas, columnas){
+            var div = document.createElement("div");
+            div.setAttribute("id","div_tabla");
+            var table = document.createElement("table");
+            table.setAttribute("border", "1");
+            table.setAttribute("id", "tabla");
+            for(let i=0; i < filas; i++){
+                var tr = document.createElement("tr")
+                    tr.setAttribute("id", "tr" + i);
+                    
+                for(let u=0; u < columnas; u++){
+                    var td = document.createElement("td")
+                    td.setAttribute("id", "td" + i + u);
+                    tr.appendChild(td);
+                    td.innerHTML = abc[contador]
+                    contador++
+                }
+                
+                table.appendChild(tr);
+            }
+            div.appendChild(table);
+            document.body.appendChild(div);
+
+        }
+        function dale()
+        {
+            filas = document.getElementById("filastabla1").value;
+            columnas = document.getElementById("columnastabla1").value;
+            filas2 = document.getElementById("filastabla2").value;
+            columnas2 = document.getElementById("columnastabla2").value;
+            generarTabla(filas, columnas);
+        }
+    </script>
+</body>
+</html>

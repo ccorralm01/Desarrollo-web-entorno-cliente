@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var provincias = ['Alava','Albacete','Alicante','Almeria','Asturias','Avila','Badajoz','Barcelona','Burgos','Cáceres',
+'Cadiz','Cantabria','Castellon','Ciudad Real','Cordoba','La Coruña','Cuenca','Gerona','Granada','Guadalajara',
+'Guipuzcoa','Huelva','Huesca','Islas Baleares','Jaen','Leon','Lerida','Lugo','Madrid','Malaga','Murcia','Navarra',
+'Orense','Palencia','Las Palmas','Pontevedra','La Rioja','Salamanca','Segovia','Sevilla','Soria','Tarragona',
+'Santa Cruz de Tenerife','Teruel','Toledo','Valencia','Valladolid','Vizcaya','Zamora','Zaragoza'];
+        var encontrado = false;
+        var provincia = prompt("dime una provincia");
+        for(x=0;x<provincias.length;x++)
+        {
+            if (provincia.toLowerCase() == provincias[x].toLowerCase()){
+                encontrado = true;
+                for(i=0;i<provincia.length;i++)
+                {
+                   if(provincia[i] != provincias[x][i])
+                    {
+                        
+                        console.log("existe pero la ", provincia[i].toUpperCase(), " debe estar en mayusculas");
+ 
+                    }
+                }
+                document.write(provincias[x], " existe en la posicion ", x);
+            }
+         }
+        if(!encontrado)
+        {
+            document.write(provincia, " NO EXISTE");
+        }
+    </script>
+</body>
+</html>

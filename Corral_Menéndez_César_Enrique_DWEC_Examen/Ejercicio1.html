@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1 César E. Corral Menéndez</title>
+</head>
+<body>
+    <form>
+        <input type="text" placeholder="Filas" id="nFilas">
+        <input type="text" placeholder="Columnas" id="nColumnas">
+        <input type="button" value="Crear" onclick="recuperarDatos()" id="btnRellenar">
+    </form>
+    <script>
+        // Esta funcion genera una tabla pasandole el nº de filas y columnas por referencia
+        function generarTabla(filas, columnas){
+            let abc = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R",
+                        "S", "T", "U", "V", "W", "X", "Y", "Z"]
+            // Creamos la tabla en html de forma dinamica a través de javascript.
+            var div = document.createElement("div");
+            div.setAttribute("id","div_tabla");
+            var table = document.createElement("table");
+            table.setAttribute("border", "1");
+            table.setAttribute("id", "tabla");
+            contador = 0
+
+            //Utilizamos dos bucles para filas y columnas
+            for(let i=0; i < filas; i++){
+                var tr = document.createElement("tr")
+                    tr.setAttribute("id", "tr" + i);
+                    
+                for(let u=0; u < columnas; u++){
+                    var td = document.createElement("td")
+                    td.setAttribute("id", "td" + i + u);
+                    tr.appendChild(td);
+
+                    //A la vez que recorremos las filas añadimos las letras declaradas en el array abc y cuando se termine ponemos guiones.
+                    td.innerHTML = abc[contador]
+                    contador++
+                    if(contador>abc.length){
+                        td.innerHTML = "-"
+                    }
+                }
+                
+                table.appendChild(tr);
+            }
+            div.appendChild(table);
+            document.body.appendChild(div);
+
+        }
+
+        // Recuperamos el numero de filas y columnas introducidas por el usuario y llamamos a la funcion para crear la tabla
+        function recuperarDatos(){
+            let filas = document.getElementById("nFilas").value;
+            let columnas = document.getElementById("nColumnas").value;
+            generarTabla(filas, columnas)
+        }
+    </script>
+</body>
+</html>

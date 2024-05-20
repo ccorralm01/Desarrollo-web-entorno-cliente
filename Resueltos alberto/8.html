@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=sc, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var cadena ="Sólo se puede aplicar la sintaxis vista en la UT2, no pudiendo aplicar ningún metodo del objeto String, ya que estos no han sido explicados en clase";
+       
+        function cuenta_caracteres(cadena)
+        {
+            
+            for(contador=0,x=0;x<cadena.length;x++)
+            {
+                if(cadena[x]!=" ")
+                    contador++;
+            }
+            return contador;
+        }
+        console.log(cuenta_caracteres(cadena));
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 3 César E. Corral Menéndez</title>
+</head>
+<body>
+    <input type="button" value="Incrementar" onclick="incrementar()" id="btnIcremento">
+    <input type="button" value="Disminuir" onclick="disminuir()" id="btnDecremento">
+    <div id="resultado"></div>
+    <div id="reloj"></div>
+    <script>
+        var resultado = document.getElementById("resultado")
+        var reloj = document.getElementById("reloj")
+        var array = new Array
+        var contador = 0
+
+        //Incrementa el número
+        function incrementar(){
+            contador += 1
+            array.push(contador)
+            resultado.innerHTML = array
+        }
+
+        //Decrementa el número
+        function disminuir(){
+            if(contador>0){
+                contador -= 1
+            }
+            else{
+                alert("No puedes disminuir más")
+            }
+            array.pop()
+            resultado.innerHTML = array  
+        }
+
+        //Reloj
+        function hora(){
+            let hora = new Date();
+            reloj.innerHTML = hora.toLocaleTimeString()
+        }
+
+        setInterval(hora, 1000)
+
+    </script>
+</body>
+</html>

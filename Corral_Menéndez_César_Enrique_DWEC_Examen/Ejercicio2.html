@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 2 César E. Corral Menéndez</title>
+</head>
+<body>
+    <input type="text" id="txtMes">
+    <input type="button" value="Cargar" onclick="calendario()" id="btnCargar">
+    <script>
+
+            // Esta funcion genera una tabla con los dias que tiene el mes introducido por el usuario
+            function generarTabla(filas, columnas, dias, mes_usuario){
+                contador = 1
+                var div = document.createElement("div");
+                div.setAttribute("id","div_tabla");
+                div.innerHTML = mes_usuario
+                var table = document.createElement("table");
+                table.setAttribute("border", "1");
+                table.setAttribute("id", "tabla");
+                for(let i=0; i < filas; i++){
+                    var tr = document.createElement("tr")
+                        tr.setAttribute("id", "tr" + i);
+                        
+                    for(let u=0; u < columnas; u++){
+                        var td = document.createElement("td")
+                        td.setAttribute("id", "td" + i + u);
+                        tr.appendChild(td);
+                        td.innerHTML = contador
+                        contador++
+                        if(contador>dias+1){
+                        td.innerHTML = ""
+                    }
+                    }
+                    
+                    table.appendChild(tr);
+                }
+                div.appendChild(table);
+                document.body.appendChild(div);
+
+            }
+
+            // Saca los dias totales del mes y año especificados
+            function diasMes(mes, año) {
+	            return new Date(año, mes, 0).getDate();
+            }
+
+            // Comprueba que el mes está bien escrito, y llama al resto de funciones
+            function calendario(){
+                meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+                mes_usuario = document.getElementById("txtMes").value;
+                numero_mes = 0
+                fallo = 0
+                for(i=0;i<meses.length;i++){
+                    if(mes_usuario.toUpperCase()!=meses[i].toUpperCase()){
+                        fallo++
+                    }
+                    else{
+                        numero_mes = i
+                    }
+                }
+                
+                if(fallo>=meses.length){
+                    alert("Mes mal escrito")
+                }
+                else{
+                    dias_totales_mes = diasMes(numero_mes+1, 2022)
+                    generarTabla(5, 7, dias_totales_mes, mes_usuario)
+                }
+            }  
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio js</title>
+</head>
+<body>
+    <script>
+        var button = document.createElement("input");
+        var texto = document.createElement("input");
+        texto.setAttribute("type", "text");
+        texto.setAttribute("id", "texto");
+        button.setAttribute("type", "button");
+        button.setAttribute("value", "enviar");
+        button.setAttribute("onclick", "dale()")
+        document.body.appendChild(texto);
+        document.body.appendChild(button);
+
+        function crono(numero)
+        {   
+            if(numero>=0){
+                reloj=setInterval(numero,1000);
+                document.write(numero)
+                numero--;
+            }
+        }
+
+        function dale()
+        {
+            var numero = document.getElementById("texto").value;
+            crono(numero);
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<html>
+  <body>
+    <!-- Div 0: Inputs para las filas y columnas de las matrices y botón para generar las matrices -->
+    <div class="div0">
+      Filas de la primera matriz: <input id="rows1" type="text">
+      Columnas de la primera matriz: <input id="cols1" type="text">
+      Filas de la segunda matriz: <input id="rows2" type="text">
+      Columnas de la segunda matriz: <input id="cols2" type="text">
+      <button id="generate-button">Generar matrices</button>
+    </div>
+
+    <!-- Div 1: Tabla para la primera matriz -->
+    <div class="div1">
+      <table id="matrix1">
+      </table>
+    </div>
+
+    <!-- Div 2: Tabla para la segunda matriz -->
+    <div class="div2">
+      <table id="matrix2">
+      </table>
+    </div>
+
+    <!-- Div 3: Botón para multiplicar las matrices y tabla para la matriz resultado -->
+    <div class="div3">
+      <button id="multiply-button">Multiplicar matrices</button>
+      <table id="result">
+      </table>
+    </div>
+
+    <script>
+        // Función para generar una matriz en una tabla dada
+        function generateMatrix(tableId, rows, cols) {
+        // Obtener la tabla
+        let table = document.getElementById(tableId);
+
+        // Borrar todos los elementos de la tabla
+        while (table.firstChild) {
+            table.removeChild(table.firstChild);
+        }
+
+        // Añadir tantas filas como se necesiten
+        for (let i = 0; i < rows; i++) {
+            let row = document.createElement("tr");
+            table.appendChild(row);
+
+            // Añadir tantas columnas como se necesiten
+            for (let j = 0; j < cols; j++) {
+            let cell = document.createElement("td");
+            let input = document.createElement("input");
+            input.type = "text";
+            cell.appendChild(input);
+            row.appendChild(cell);
+            }
+        }
+        }
+
+        // Función para multiplicar dos matrices y mostrar el resultado en una tabla dada
+        function multiplyMatrices(tableId, matrix1, matrix2) {
+        // Obtener la tabla
+        let table = document.getElementById(tableId);
+
+        // Comprobar si las matrices se pueden multiplicar
+        if (matrix1[0].length !== matrix2.length) {
+            // Si no se pueden multiplicar, mostrar un mensaje de error
+            alert("No se pueden multiplicar estas matrices");
+            return;
+        }
+
+        // Borrar todos los elementos de la tabla
+        while (table.firstChild) {
+            table.removeChild(table.firstChild);
+        }
+
+        // Crear la matriz resultado
+        let result = [];
+        for (let i = 0; i < matrix1.length; i++) {
+            result[i] = [];
+            for (let j = 0; j < matrix2[0].length; j++) {
+            result[i][j] = 0;
+            for (let k = 0; k < matrix1[0].length; k++) {
+                result[i][j] += matrix1[i][k] * matrix2[k][j];
+            }
+            }
+        }
+
+        // Añadir tantas filas como se necesiten
+        for (let i = 0; i < result.length; i++) {
+            let row = document.createElement("tr");
+            table.appendChild(row);
+
+            // Añadir tantas columnas como se necesiten
+            for (let j = 0; j < result[0].length; j++) {
+            let cell = document.createElement("td");
+            cell.textContent = result[i][j];
+            row.appendChild(cell);
+            }
+        }
+        }
+    </script>
+    </body>
+</html>
